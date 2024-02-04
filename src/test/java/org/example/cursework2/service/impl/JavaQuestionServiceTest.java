@@ -4,6 +4,7 @@ import org.assertj.core.api.Condition;
 import org.example.cursework2.Model.Question;
 import org.example.cursework2.exception.NotEnoughQuestionsException;
 import org.example.cursework2.exception.QuestionAlreadyExistsException;
+import org.example.cursework2.exception.QuestionAreEmptyException;
 import org.example.cursework2.exception.QuestionNotFoundException;
 import org.example.cursework2.service.QuestionService;
 import org.junit.jupiter.api.AfterEach;
@@ -112,7 +113,7 @@ public class JavaQuestionServiceTest {
     @Test
     public void getRandomQuestionNegativeTest() {
         afterEach();
-        assertThatExceptionOfType(QuestionAlreadyExistsException.class)
+        assertThatExceptionOfType(QuestionAreEmptyException.class)
                 .isThrownBy(questionService:: getRandomQuestion);
     }
 }
