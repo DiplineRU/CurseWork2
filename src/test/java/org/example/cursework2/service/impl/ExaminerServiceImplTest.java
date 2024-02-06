@@ -1,9 +1,9 @@
 package org.example.cursework2.service.impl;
 
-import org.assertj.core.api.AbstractBooleanArrayAssert;
 import org.example.cursework2.Model.Question;
 import org.example.cursework2.exception.NotEnoughQuestionsException;
 import org.example.cursework2.service.QuestionService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -60,13 +60,11 @@ public class ExaminerServiceImplTest {
                 new Question("Вопрос 1", "Ответ 1"),
                 new Question("Вопрос 5", "Ответ 5")
                 );
-            assertThat(examinerService.getQuestions(4))
+        Assertions.assertTrue(examinerService.getQuestions(4).containsAll(List.of(
                         new Question("Вопрос 1", "Ответ 1"),
                         new Question("Вопрос 2", "Ответ 2"),
                         new Question("Вопрос 4", "Ответ 4"),
-                        new Question("Вопрос 5", "Ответ 5")
-                );
-    }
-
-
+                        new Question("Вопрос 5", "Ответ 5"))
+                ));
+    } 
 }
